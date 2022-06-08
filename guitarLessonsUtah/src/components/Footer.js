@@ -139,22 +139,26 @@ const StyledFooter = styled("footer")`
   @media screen and (max-width: 1440px) {
     #footerLogo {
       top: 24%;
-      left: 0%;
+      left: 4%;
     }
     .addressDiv {
       top: 20%;
-      left: 26%;
+      left: 34%;
     }
     .linkDiv {
       top: 20%;
-      right: 42%;
+      right: 38%;
+    }
+    .socialLinksDiv {
+      top: 30%;
+      right: 10%;
     }
   }
 
   @media screen and (max-width: 768px) {
     height: 18vh;
     #footerLogo {
-      top: 24%;
+      top: 22%;
       left: 0%;
     }
     .addressDiv {
@@ -162,7 +166,8 @@ const StyledFooter = styled("footer")`
     }
     .linkDiv {
       top: 20%;
-      right: 42%;
+      right: 50%;
+      transform: translate(50%, 0);
     }
   }
 
@@ -172,14 +177,18 @@ const StyledFooter = styled("footer")`
     }
     .linkDiv {
       top: 28%;
-      right: 40%;
+      right: 46%;
       .footerLink {
         padding-bottom: 0.2rem;
         margin-bottom: 0.2rem;
       }
     }
+    .socialLinksDiv {
+      top: 34%;
+      right: 4%;
+    }
     .credits {
-      bottom: 16%;
+      bottom: 18%;
       width: 80%;
       text-align: center;
     }
