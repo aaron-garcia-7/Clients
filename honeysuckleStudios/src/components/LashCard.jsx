@@ -46,12 +46,12 @@ const ScLashCard = styled(motion.div)`
             letter-spacing: 0.1rem;
             margin-bottom: 1rem;
             opacity: 0;
-            animation: fadeIn 1.4s ease 1.4s forwards;
+            animation: fadeIn 1.4s ease 1.3s forwards;
         }
         .lashPrice {
             font-size: calc(0.8rem + 0.4vw);
             opacity: 0;
-            animation: fadeIn 1.4s ease 1.8s forwards;
+            animation: fadeIn 1.4s ease 1.6s forwards;
         }
     }
 
