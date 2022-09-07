@@ -1,7 +1,6 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
-
 import Branch1 from "../components/svg/Branch1";
 import PageNum from "../components/PageNum";
 import map from "../images/map.png";
@@ -36,8 +35,11 @@ const Location = () => {
         </>
       )}
       <div className="addressDiv">
+        <h3 className="addressSubTitle">Home Studio</h3>
         <a
           href="https://www.google.com/maps/place/Honeysuckle+Studios/@40.5981341,-112.0262221,14.84z/data=!4m5!3m4!1s0x87528fa0280a65e7:0x93d0df96cd8aa481!8m2!3d40.5985702!4d-112.0200876"
+          target="_blank"
+          rel="noreferrer"
           className="addressLink"
         >
           <span className="numbers">5423</span> windmill dr <br /> west jordan,
@@ -46,6 +48,8 @@ const Location = () => {
         <div className="divider" />
         <a
           href="https://www.google.com/maps/place/Honeysuckle+Studios/@40.5981341,-112.0262221,14.84z/data=!4m5!3m4!1s0x87528fa0280a65e7:0x93d0df96cd8aa481!8m2!3d40.5985702!4d-112.0200876"
+          target="_blank"
+          rel="noreferrer"
           className="addressLink"
         >
           basement suite along <br /> the west side of the house
@@ -94,7 +98,12 @@ const ScLocation = styled("section")`
     position: absolute;
     top: 50%;
     right: 20%;
-    transform: translate(0, -50%);
+    transform: translate(0, -60%);
+    .addressSubTitle {
+      font-size: calc(0.8rem + 1.2vw);
+      letter-spacing: 0.2rem;
+      margin-bottom: calc(1.6rem + 1vw);
+    }
     .addressLink {
       color: black;
       font-size: calc(0.6rem + 0.6vw);
@@ -159,12 +168,17 @@ const ScLocation = styled("section")`
     .addressDiv {
       top: 25%;
       left: 50%;
-      transform: translate(-50%, 0%);
+      transform: translate(-50%, -10%);
       width: 60vw;
+      .addressSubTitle {
+        font-size: calc(0.8rem + 1.2vw);
+        letter-spacing: 0.1rem;
+        margin-bottom: 0.8rem;
+      }
       .divider {
         width: 40%;
         height: 2px;
-        margin: 1rem 0;
+        margin: 0.6rem 0;
       }
     }
   }
