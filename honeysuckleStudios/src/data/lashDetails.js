@@ -1,6 +1,6 @@
-import classic from "../images/classic.svg";
-import hybrid from "../images/hybrid.svg";
-import volume from "../images/volume.svg";
+import classic from "../images/classic.png";
+import hybrid from "../images/hybrid.png";
+import volume from "../images/volume.png";
 
 const lashDetails = [
   {
