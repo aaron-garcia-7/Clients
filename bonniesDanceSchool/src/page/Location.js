@@ -1,0 +1,201 @@
+import React, { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import styled from "styled-components";
+import LocationImg from "../components/LocationImg";
+import Poly from "../components/Poly";
+
+function Location({ pageWidth }) {
+  const [ref, inView] = useInView({
+    threshold: pageWidth > 768 ? 0.1 : 0.4,
+    triggerOnce: true,
+  });
+
+  // Parallax Effect
+  const [offset, setOffset] = useState(0);
+
+  const parallaxScroll = () => {
+    setOffset(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", parallaxScroll);
+    return () => window.removeEventListener("scroll", parallaxScroll);
+  }, [offset]);
+
+  const parallaxStyle = {
+    transform: `translate(0, ${offset * 0.08}px)`,
+  };
+  // End Parallax
+  return (
+    <ScLocation ref={ref}>
+      <Poly inLocation={true} />
+      <div className="bubbleLocation" style={parallaxStyle} />
+      <article>
+        <header>
+          <h3 className="sectionTitle">Where You Can Find Us!</h3>
+        </header>
+        <a
+          href="https://goo.gl/maps/ELECSz7HCWkmLdbM6"
+          target="_blank"
+          rel="noreferrer"
+          className="address"
+        >
+          5372 Harvestmill Dr. <br /> West Jordan, UT 84081
+        </a>
+        <p className="instructions">
+          Please be mindful not to park in front of others' driveways
+        </p>
+        <a
+          href="https://goo.gl/maps/ELECSz7HCWkmLdbM6"
+          target="_blank"
+          rel="noreferrer"
+          className="link"
+        >
+          Expand Map
+        </a>
+      </article>
+      {inView && <LocationImg />}
+    </ScLocation>
+  );
+}
+
+const ScLocation = styled("section")`
+  min-height: 48rem;
+  article {
+    position: absolute;
+    top: 50%;
+    left: 14%;
+    transform: translate(0, -50%);
+    header {
+      width: 80%;
+      margin-bottom: 3.6rem;
+      h3 {
+        // See Global Styles
+        font-size: calc(1rem + 2vw);
+      }
+    }
+    .address {
+      font-size: calc(0.4rem + 0.8vw);
+    }
+    .instructions {
+      width: 15rem;
+      margin: 1rem 0 3.6rem 0;
+      font-family: var(--modern);
+      font-size: calc(0.5rem + 0.3vw);
+      letter-spacing: 0.06rem;
+    }
+    .link {
+      position: relative;
+      width: 4rem;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: var(--maroon);
+        height: 2px;
+        transition: 0.3s ease;
+        pointer-events: none;
+      }
+      &::before {
+        transform: translate(0%, 2px) scale(1);
+        width: 100%;
+      }
+      &::after {
+        transform: translate(0%, 6px) scale(1);
+        width: 68%;
+      }
+      &:hover {
+        &::before {
+          width: 48%;
+        }
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .bubbleLocation {
+    position: absolute;
+    top: 10%;
+    left: 52%;
+    width: 12vw;
+    height: 12vw;
+    border-radius: 50%;
+    background: var(--maroon);
+    opacity: 0.4;
+  }
+
+  @media (max-width: 1440px) {
+    article {
+      header {
+        margin-bottom: 2.4rem;
+      }
+      .instructions {
+        margin: 1rem 0 2.4rem 0;
+      }
+    }
+  }
+
+  @media (max-width: 1224px) {
+    height: 60vh;
+    min-height: 32rem;
+    article {
+      header {
+        margin-bottom: 1.6rem;
+        h3 {
+          font-size: calc(1rem + 1.4vw);
+        }
+      }
+      .instructions {
+        width: 12rem;
+        margin: 1rem 0 1.6rem 0;
+      }
+    }
+    #polyLocation {
+      transform: translate(-50%, -32%) scale(1);
+    }
+    .bubbleLocation {
+      top: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    height: 120vh;
+    min-height: 48rem;
+    article {
+      top: 34%;
+      left: 18%;
+      .address {
+        font-size: calc(0.7rem + 1vw);
+      }
+      .instructions {
+        width: 11rem;
+        margin: 1.4rem 0 2.6rem 0;
+        font-size: calc(0.5rem + 0.4vw);
+      }
+      .link {
+        &::before,
+        &::after {
+          height: 1px;
+        }
+      }
+    }
+
+    .bubbleLocation {
+      top: -4%;
+      left: 64%;
+      width: 32vw;
+      height: 32vw;
+    }
+  }
+
+  @media (max-width: 480px) {
+    height: 112vh;
+    min-height: 36rem;
+  }
+`;
+
+export default Location;
