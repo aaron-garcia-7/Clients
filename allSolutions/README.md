@@ -1,1 +1,1 @@
-Welcome to the source code for all solutions (heating & air conditioning).
+Repo for all solutions
