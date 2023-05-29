@@ -48,7 +48,7 @@ function About({ pageWidth, navOpen }) {
         </header>
         <p style={navOpen ? menuStyleParagraph : null}>
           Hello! My name is Bonnie. I’m a dance enthusiast seeking to help my
-          dancers experience physical, intellectual, and emotional growth
+          students experience physical, intellectual, and emotional growth
           through the power of dance.
         </p>
         <ul style={navOpen ? menuStyleList : null}>
